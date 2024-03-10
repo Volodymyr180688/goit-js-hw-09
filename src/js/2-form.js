@@ -30,19 +30,17 @@ document.addEventListener('DOMContentLoaded', function () {
     
 
     form.addEventListener('submit', function (event) {
-      
+    event.preventDefault();
     const emailValue = emailInput.value.trim();
     const messageValue = messageInput.value.trim();
-      if (emailValue !== '' && messageValue !== '') { 
-        
-      const formData = {
-        email: emailValue,
-        message: messageValue
-      };
-      console.log(formData);
-      localStorage.removeItem(formStateKey);
-      emailInput.value = '';
-      messageInput.value = '';
+    if (emailValue !== '' && messageValue !== '') { 
+        const formData = {
+            email: emailValue,
+            message: messageValue
+        };
+        console.log(formData);
+        localStorage.removeItem(formStateKey);
+        form.reset();
     }
-  });
+});
 });
